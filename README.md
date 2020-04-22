@@ -6,7 +6,7 @@ Provides a collection of decorators for [Resilience4j](https://github.com/resili
  [Arrow](https://github.com/arrow-kt/arrow) data types.
 
 ## Adding to project
-todo add this after adding project to bintray
+todo add this section after adding project to bintray
 
 ## Usage example
 

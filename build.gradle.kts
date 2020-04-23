@@ -19,7 +19,7 @@ plugins {
     id("java")
 }
 
-apply(plugin = "com.novoda:bintray-release")
+apply(plugin = "com.novoda.bintray-release")
 
 
 group = "com.duytsev"

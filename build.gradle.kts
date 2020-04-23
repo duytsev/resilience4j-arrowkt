@@ -1,13 +1,29 @@
+import com.novoda.gradle.release.PublishExtension
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
+buildscript {
+
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+
+    dependencies {
+        classpath("com.novoda:bintray-release:0.9.2")
+    }
+}
+
 plugins {
-    kotlin("jvm") version "1.3.71"
+    kotlin("jvm") version "1.3.72"
     id("idea")
     id("java")
 }
 
+apply(plugin = "com.novoda:bintray-release")
+
+
 group = "com.duytsev"
-version = "1.0-SNAPSHOT"
+version = "0.0.1"
 
 repositories {
     mavenCentral()
@@ -16,9 +32,9 @@ repositories {
 
 dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-    implementation("io.arrow-kt:arrow-core:0.10.4")
-    implementation("io.arrow-kt:arrow-syntax:0.10.4")
-    implementation("io.arrow-kt:arrow-fx:0.10.4")
+    implementation("io.arrow-kt:arrow-core:0.10.5")
+    implementation("io.arrow-kt:arrow-syntax:0.10.5")
+    implementation("io.arrow-kt:arrow-fx:0.10.5")
     implementation("io.github.resilience4j:resilience4j-all:1.3.1")
 
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.6.2")
@@ -43,4 +59,15 @@ tasks {
             freeCompilerArgs = listOf("-Xjsr305=strict")
         }
     }
+}
+
+configure<PublishExtension> {
+    userOrg = "duytsev"
+    repoName = "resilience4j-arrowkt"
+    groupId = "com.duytsev"
+    artifactId = "resilience4j-arrowkt"
+    publishVersion = version.toString()
+    desc = "Arrow data type support for Resilience4j"
+    setLicences("MIT")
+    website = "https://github.com/duytsev/resilience4j-arrowkt"
 }

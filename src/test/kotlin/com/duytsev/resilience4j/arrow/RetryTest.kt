@@ -2,7 +2,6 @@ package com.duytsev.resilience4j.arrow
 
 import arrow.core.left
 import arrow.core.right
-import arrow.fx.IO
 import io.github.resilience4j.retry.Retry
 import io.github.resilience4j.retry.RetryConfig
 import io.mockk.every
@@ -13,7 +12,6 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
 import strikt.api.expectThat
 import strikt.assertions.isEqualTo
-import java.lang.RuntimeException
 
 @ExtendWith(MockKExtension::class)
 class RetryTest {
@@ -94,20 +92,5 @@ class RetryTest {
         expectRight(func()).isEqualTo("Hello")
         expectThat(metrics.numberOfSuccessfulCallsWithoutRetryAttempt).isEqualTo(1)
         verify(exactly = 1) { helloWorldService.returnHelloWorld() }
-    }
-
-    @Test
-    fun `test IO`() {
-        val config = RetryConfig.custom<RetryConfig>().build()
-        val retry = Retry.of("test", config)
-        val metrics = retry.metrics
-
-        every { helloWorldService.returnIO() } returns IO { "Hello" }
-
-        val result = retry.executeIOSupplier { helloWorldService.returnIO() }.unsafeRunSync()
-
-        expectThat(result).isEqualTo("Hello")
-        expectThat(metrics.numberOfSuccessfulCallsWithoutRetryAttempt).isEqualTo(1)
-        verify(exactly = 1) { helloWorldService.returnIO() }
     }
 }

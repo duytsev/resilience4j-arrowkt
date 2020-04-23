@@ -1,12 +1,7 @@
 package com.duytsev.resilience4j.arrow
 
 import arrow.core.Either
-import arrow.core.Function0
 import arrow.core.left
-import arrow.fx.IO
-import arrow.fx.extensions.fx
-import arrow.fx.handleError
-import arrow.fx.handleErrorWith
 import io.github.resilience4j.retry.Retry
 
 /**
@@ -50,22 +45,5 @@ fun <E : Exception, T> Retry.executeArrowEitherSupplier(
                 }
             }
         )
-    }
-}
-
-fun <T> Retry.executeIOSupplier(
-    supplier: () -> IO<T>
-): IO<T> {
-    val context = this.context<T>()
-    while (true) {
-        IO.fx {
-            val result = supplier().bind()
-            val validationResult = context.onResult(result)
-            if (!validationResult) {
-                context.onComplete()
-            }
-        }.handleError {
-            context.onError(it as Exception)
-        }
     }
 }

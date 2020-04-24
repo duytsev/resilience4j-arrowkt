@@ -6,7 +6,57 @@ Provides a collection of decorators for [Resilience4j](https://github.com/resili
  [Arrow](https://github.com/arrow-kt/arrow) data types.
 
 ## Adding to project
-todo add this section after adding project to bintray
+<details><summary>Gradle</summary>
+
+```
+repositories {
+    jcenter()
+}
+
+// Note: Arrow and Resilience4j dependencies are necessary
+implementation 'io.arrow-kt:arrow-core:$arrowVersion'
+implementation 'io.arrow-kt:arrow-syntax:$$arrowVersion'
+implementation 'io.github.resilience4j:resilience4j-all:$resilienceVersion'
+implementation 'com.duytsev:resilience4j-arrowkt:$version'
+```
+</details>
+
+<details><summary>Maven</summary>
+
+```
+<repositories>
+    <repository>
+        <id>jcenter</id>
+        <url>https://jcenter.bintray.com/</url>
+    </repository>
+</repositories>
+
+<!--Note: Arrow and Resilience4j dependencies are necessary-->
+<dependency>
+  <groupId>io.arrow-kt</groupId>
+  <artifactId>arrow-core</artifactId>
+  <version>${$arrowVersion}</version>
+</dependency>
+
+<dependency>
+  <groupId>io.arrow-kt</groupId>
+  <artifactId>arrow-syntax</artifactId>
+  <version>${$arrowVersion}</version>
+</dependency>
+
+<dependency>
+  <groupId>io.github.resilience4j</groupId>
+  <artifactId>resilience4j-all</artifactId>
+  <version>${$resilienceVersion}</version>
+</dependency>
+
+<dependency>
+  <groupId>com.duytsev</groupId>
+  <artifactId>resilience4j-arrowkt</artifactId>
+  <version>${version}</version>
+</dependency>
+```
+</details>
 
 ## Usage example
 

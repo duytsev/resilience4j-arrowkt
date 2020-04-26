@@ -1,6 +1,7 @@
 # Resilience4j support for ArrowKt data types
 
-todo add badges here
+[![Build Status](https://travis-ci.org/duytsev/resilience4j-arrowkt.svg?branch=master)](https://travis-ci.org/duytsev/resilience4j-arrowkt)
+[ ![Download](https://api.bintray.com/packages/duytsev/resilience4j-arrowkt/resilience4j-arrowkt/images/download.svg) ](https://bintray.com/duytsev/resilience4j-arrowkt/resilience4j-arrowkt/_latestVersion)
 
 Provides a collection of decorators for [Resilience4j](https://github.com/resilience4j/resilience4j) types to support
  [Arrow](https://github.com/arrow-kt/arrow) data types.

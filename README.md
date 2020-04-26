@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/duytsev/resilience4j-arrowkt.svg?branch=master)](https://travis-ci.org/duytsev/resilience4j-arrowkt)
 [ ![Download](https://api.bintray.com/packages/duytsev/resilience4j-arrowkt/resilience4j-arrowkt/images/download.svg) ](https://bintray.com/duytsev/resilience4j-arrowkt/resilience4j-arrowkt/_latestVersion)
+[![codecov](https://codecov.io/gh/duytsev/resilience4j-arrowkt/branch/master/graph/badge.svg)](https://codecov.io/gh/duytsev/resilience4j-arrowkt)
 
 Provides a collection of decorators for [Resilience4j](https://github.com/resilience4j/resilience4j) types to support
  [Arrow](https://github.com/arrow-kt/arrow) data types.

@@ -17,6 +17,7 @@ plugins {
     kotlin("jvm") version "1.3.72"
     id("idea")
     id("java")
+    id("jacoco")
 }
 
 apply(plugin = "com.novoda.bintray-release")
@@ -70,4 +71,11 @@ configure<PublishExtension> {
     desc = "Arrow data type support for Resilience4j"
     setLicences("MIT")
     website = "https://github.com/duytsev/resilience4j-arrowkt"
+}
+
+tasks.jacocoTestReport {
+    reports {
+        xml.isEnabled = true
+        html.isEnabled = true
+    }
 }
